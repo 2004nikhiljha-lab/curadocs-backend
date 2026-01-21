@@ -1,14 +1,15 @@
 // Routes/doctorRoutes.js
-const express = require('express');
-const router = express.Router();
-const {
+import express from 'express';
+import {
   getDashboard,
   getPatients,
   getAppointments,
   updateProfile
-} = require('../controllers/doctorController');
-const { protect } = require('../Middleware/authMiddleware');
-const { authorize } = require('../Middleware/roleMiddleware');
+} from '../controllers/doctorController.js';
+import { protect } from '../Middleware/authMiddleware.js';
+import { authorize } from '../Middleware/roleMiddleware.js';
+
+const router = express.Router();
 
 // All routes are protected and require doctor role
 router.use(protect);
@@ -19,4 +20,4 @@ router.get('/patients', getPatients);
 router.get('/appointments', getAppointments);
 router.put('/profile', updateProfile);
 
-module.exports = router;
+export default router;
