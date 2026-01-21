@@ -21,4 +21,4 @@ router.get('/appointments', getAppointments);
 router.get('/health-stats', getHealthStats);
 router.put('/profile', updateProfile);
 
-module.exports = router;
+export default router;
