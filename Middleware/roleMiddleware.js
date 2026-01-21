@@ -1,7 +1,6 @@
-// Middleware/roleMiddleware.js
 
 // Middleware to restrict access based on user role
-exports.authorize = (...roles) => {
+export const authorize = (...roles) => {
   return (req, res, next) => {
     if (!req.user) {
       return res.status(401).json({
