@@ -1,6 +1,7 @@
 {
   "name": "curadocs-backend",
   "version": "1.0.0",
+  "type": "module",
   "description": "Role-based authentication system for CuraDocs",
   "main": "server.js",
   "scripts": {
