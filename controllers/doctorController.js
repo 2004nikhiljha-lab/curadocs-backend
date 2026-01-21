@@ -1,11 +1,11 @@
 // controllers/doctorController.js
-const Doctor = require('../Models/Doctor');
-const Patient = require('../Models/Patient');
+import Doctor from '../Models/Doctor.js';
+import Patient from '../Models/Patient.js';
 
 // @desc    Get doctor dashboard data
 // @route   GET /api/doctor/dashboard
 // @access  Private (Doctor only)
-exports.getDashboard = async (req, res) => {
+export const getDashboard = async (req, res) => {
   try {
     const doctor = await Doctor.findById(req.user.id)
       .populate('patients', 'fullName email')
@@ -60,7 +60,7 @@ exports.getDashboard = async (req, res) => {
 // @desc    Get all patients
 // @route   GET /api/doctor/patients
 // @access  Private (Doctor only)
-exports.getPatients = async (req, res) => {
+export const getPatients = async (req, res) => {
   try {
     const doctor = await Doctor.findById(req.user.id)
       .populate('patients', 'fullName email bloodGroup healthStats');
@@ -82,7 +82,7 @@ exports.getPatients = async (req, res) => {
 // @desc    Get all appointments
 // @route   GET /api/doctor/appointments
 // @access  Private (Doctor only)
-exports.getAppointments = async (req, res) => {
+export const getAppointments = async (req, res) => {
   try {
     const doctor = await Doctor.findById(req.user.id);
 
@@ -107,7 +107,7 @@ exports.getAppointments = async (req, res) => {
 // @desc    Update doctor profile
 // @route   PUT /api/doctor/profile
 // @access  Private (Doctor only)
-exports.updateProfile = async (req, res) => {
+export const updateProfile = async (req, res) => {
   try {
     const { specialization, licenseNumber, experience, availability } = req.body;
 
