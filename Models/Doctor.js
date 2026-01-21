@@ -1,6 +1,6 @@
 // Models/Doctor.js
-const mongoose = require('mongoose');
-const User = require('./User');
+import mongoose from 'mongoose';
+import User from './User.js';
 
 const doctorSchema = new mongoose.Schema({
   specialization: {
@@ -43,4 +43,4 @@ const doctorSchema = new mongoose.Schema({
 
 const Doctor = User.discriminator('doctor', doctorSchema);
 
-module.exports = Doctor;
+export default Doctor;
