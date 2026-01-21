@@ -1,6 +1,6 @@
 // Models/Patient.js
-const mongoose = require('mongoose');
-const User = require('./User');
+import mongoose from 'mongoose';
+import User from './User.js';
 
 const patientSchema = new mongoose.Schema({
   dateOfBirth: {
@@ -50,4 +50,4 @@ const patientSchema = new mongoose.Schema({
 
 const Patient = User.discriminator('patient', patientSchema);
 
-module.exports = Patient;
+export default Patient;
