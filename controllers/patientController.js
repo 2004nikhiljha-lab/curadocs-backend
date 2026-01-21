@@ -1,10 +1,10 @@
 // controllers/patientController.js
-const Patient = require('../Models/Patient');
+import Patient from '../Models/Patient.js';
 
 // @desc    Get patient dashboard data
 // @route   GET /api/patient/dashboard
 // @access  Private (Patient only)
-exports.getDashboard = async (req, res) => {
+export const getDashboard = async (req, res) => {
   try {
     const patient = await Patient.findById(req.user.id).select('-password');
 
@@ -57,7 +57,7 @@ exports.getDashboard = async (req, res) => {
 // @desc    Get medical history
 // @route   GET /api/patient/medical-history
 // @access  Private (Patient only)
-exports.getMedicalHistory = async (req, res) => {
+export const getMedicalHistory = async (req, res) => {
   try {
     const patient = await Patient.findById(req.user.id);
 
@@ -80,7 +80,7 @@ exports.getMedicalHistory = async (req, res) => {
 // @desc    Get appointments
 // @route   GET /api/patient/appointments
 // @access  Private (Patient only)
-exports.getAppointments = async (req, res) => {
+export const getAppointments = async (req, res) => {
   try {
     const patient = await Patient.findById(req.user.id);
 
@@ -105,7 +105,7 @@ exports.getAppointments = async (req, res) => {
 // @desc    Update patient profile
 // @route   PUT /api/patient/profile
 // @access  Private (Patient only)
-exports.updateProfile = async (req, res) => {
+export const updateProfile = async (req, res) => {
   try {
     const { dateOfBirth, bloodGroup, healthStats, allergies } = req.body;
 
@@ -136,7 +136,7 @@ exports.updateProfile = async (req, res) => {
 // @desc    Get health stats
 // @route   GET /api/patient/health-stats
 // @access  Private (Patient only)
-exports.getHealthStats = async (req, res) => {
+export const getHealthStats = async (req, res) => {
   try {
     const patient = await Patient.findById(req.user.id);
 
