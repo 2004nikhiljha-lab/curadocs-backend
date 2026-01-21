@@ -1,6 +1,6 @@
 // Models/User.js
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
 
 const userSchema = new mongoose.Schema({
   fullName: {
@@ -60,4 +60,4 @@ userSchema.methods.toJSON = function() {
 
 const User = mongoose.model('User', userSchema);
 
-module.exports = User;
+export default User;
