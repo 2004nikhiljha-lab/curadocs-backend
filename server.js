@@ -6,6 +6,9 @@ import connectDB from './config/database.js';
 import authRoutes from './Routes/authRoutes.js';
 import doctorRoutes from './Routes/doctorRoutes.js';
 import patientRoutes from './Routes/patientRoutes.js';
+import healthBotRoutes from './Routes/healthBotRoutes.js';
+
+//const healthBotRoutes = require('./Routes/healthBotRoutes');
 
 dotenv.config();
 
@@ -50,6 +53,7 @@ app.get('/api/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/doctor', doctorRoutes);
 app.use('/api/patient', patientRoutes);
+app.use('/api/healthbot',healthBotRoutes);
 
 // 404 handler
 app.use((req, res, next) => {
